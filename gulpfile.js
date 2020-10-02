@@ -1,89 +1,48 @@
-let gulp = require('gulp');
-let htmlmin = require('gulp-htmlmin');
-let sass = require('gulp-sass');
-let postcss = require('gulp-postcss');
-let cleanCSS = require('gulp-clean-css');
-let sourcemaps = require('gulp-sourcemaps');
-let rollup = require("rollup-stream");
-let source = require("vinyl-source-stream");
-let buffer = require("vinyl-buffer");
-let babel = require('rollup-plugin-babel');
-let rigger = require('gulp-rigger');
-let uglify = require('gulp-terser');
-let browserSync = require('browser-sync').create();
+const {src, dest, series, watch} = require('gulp');
+const sass = require('gulp-sass');
+const csso = require('gulp-csso');
+const include = require('gulp-file-include');
+const htmlmin = require('gulp-htmlmin');
+const del = require('del');
+const concat = require('gulp-concat');
+const autoprefixer = require('gulp-autoprefixer');
+const sync = require('browser-sync').create();
 
-gulp.task('build:html', () => {
-    return gulp.src('src/*.html')
-        .pipe(htmlmin({
-            collapseWhitespace: true,
-            removeComments: true
+function html() {
+    return src('src/**.html')
+        .pipe(include({
+            prefix: '@@'
         }))
-        .pipe(gulp.dest('build'));
-});
+        .pipe(htmlmin({
+            collapseWhitespace: true
+        }))
+        .pipe(dest('dist'))
+}
 
-gulp.task('build:scss', () => {
-    return gulp.src('src/scss/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(postcss())
-        .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('build/css'));
-});
+function scss() {
+    return src('src/scss/**.scss')
+        .pipe(sass())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions']
+        }))
+        .pipe(csso())
+        .pipe(concat('index.css'))
+        .pipe(dest('dist'))
+}
 
-gulp.task('build:js', function() {
-    return gulp.src('src/js/main.js')
-        .pipe(rigger())
-        .pipe(sourcemaps.init())
-        .pipe(uglify())
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('build/js'))
-});
+function clear() {
+    return del('dist')
+}
 
-gulp.task('build:images', async () => {
-    return gulp.src('src/images/**/*', {
-        allowEmpty: true
-    })
-        .pipe(gulp.dest('build/images'));
-});
-
-gulp.task('build:resources', async () => {
-    return gulp.src('src/resources/**/*', {
-        dot: true,
-        allowEmpty: true
-    })
-        .pipe(gulp.dest('build'))
-});
-
-gulp.task('build',
-    gulp.parallel(
-        'build:html',
-        'build:scss',
-        'build:js',
-        'build:images',
-        'build:resources'
-    ));
-
-gulp.task('serve', () => {
-    browserSync.init({
-        server: {
-            baseDir: './build'
-        }
+function serve() {
+    sync.init({
+        server: './dist'
     });
-});
 
-gulp.task('watch', () => {
-    gulp.watch('src/*.html', gulp.series('build:html'));
-    gulp.watch('src/scss/**/*.scss', gulp.series('build:scss'));
-    gulp.watch('src/js/**/*.js', gulp.series('build:js'));
-    gulp.watch('src/images/**/*', gulp.series('build:images'));
-    gulp.watch(['src/resources/**/*', 'src/resources/**/.*'], gulp.series('build:resources'));
-    gulp.watch('build/**/*').on('change', browserSync.reload);
-});
+    watch('src/**.html', series(html)).on('change', sync.reload);
+    watch('src/scss/**.scss', series(scss)).on('change', sync.reload);
+}
 
-gulp.task('default', gulp.series(
-    'build',
-    gulp.parallel(
-        'serve',
-        'watch'
-    )
-));
+exports.build = series(clear, scss, html);
+exports.serve = series(clear, scss, html, serve);
+exports.clear = clear;
