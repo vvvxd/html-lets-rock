@@ -1,6 +1,62 @@
-.qwe{
-  background-color: black;
 
-  p{
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  font-family: 'Roboto', 'Segoe UI', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+.header {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100px;
+  background-color: #df001f;
+  flex-wrap: nowrap;
+
+  &__nav {
+    display: flex;
+    align-items: center;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 0 68px;
+    }
+
+    li {
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 44px;
+      margin-left: 20px;
+    }
+
+    li:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__logo {
+
+    &-micro {
+position: absolute;
+      top: 10px;
+      z-index: 1;
+    }
+
+    &-text {
+      position: absolute;
+      top: 10px;
+      z-index: 2;
+    }
   }
 }
