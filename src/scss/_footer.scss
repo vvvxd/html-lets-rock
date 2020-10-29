@@ -1,0 +1,17 @@
+.footer {
+  margin-top: 70px;
+  margin-bottom: 90px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  i {
+    color: #df001f;
+  }
+  &__nav {
+    li {
+      color: #333333;
+    }
+  }
+}

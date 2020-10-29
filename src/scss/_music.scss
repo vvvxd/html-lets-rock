@@ -1,0 +1,97 @@
+.music {
+  margin-top: 100px;
+  &__container {
+    display: flex;
+  }
+  &__songs {
+    flex: 1 1 auto;
+  }
+  &__text {
+    margin-bottom: 30px;
+  }
+  &__img {
+    display: flex;
+    max-width: 370px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px 5px;
+    margin: auto;
+    img {
+      margin-bottom: 30px;
+    }
+  }
+  &__tracsk {
+    padding-right: 70px;
+    margin-top: 60px;
+  }
+}
+.playing {
+  display: flex;
+  &__img {
+    img {
+      width: 100%;
+  }
+    margin-right: 15px;
+  }
+}
+.btn {
+  display: flex;
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    margin-right: 20px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0.5px 1.5px rgba(255, 255, 255, 0.75);
+    border: solid 1px #e5e5e5;
+    span {
+      text-shadow: 0px 1px 0 rgba(255, 255, 255, 0.75);
+      font-size: 11px;
+      color: #333333;
+    }
+    i {
+      margin-right: 5px;
+      font-size: 10px;
+    }
+  }
+}
+.play {
+  display: flex;
+ 
+  &__logo {
+    align-self: flex-start;
+    background-color: #ff9e4c;
+    border: 1px solid #ff9e4c;
+    padding: 10px 12px 10px 15px;
+    border-radius: 50%;
+    margin-right: 10px;
+    i {
+      color: #ffffff;
+    }
+  }
+  &__text {
+    p {
+      font-size: 14px;
+      color: #9f9999;
+    }
+    span {
+      font-size: 16px;
+      line-height: 2.5;
+      color: #333333;
+    }
+  }
+}
+.tracsk {
+  display: flex;
+  justify-content: space-between;
+  &__item {
+    p {
+      font-size: 16px;
+      line-height: 2.5;
+      text-align: left;
+      color: #333333;
+      border-bottom: 1px solid #999999;
+    }
+  }
+}

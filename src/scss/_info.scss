@@ -1,0 +1,95 @@
+.info {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  &__container {
+    display: flex;
+  }
+}
+.consert {
+  flex: 1 1 auto;
+}
+.ticket {
+  max-height: 290px;
+  display: flex;
+  margin-top: 40px;
+  &__img {
+    position: relative;
+    margin-right: 70px;
+    img {
+      z-index: 1;
+    }
+    span {
+      position: absolute;
+      top: 45%;
+      left: 30%;
+      font-size: 32px;
+      font-weight: 900;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 0.94;
+      letter-spacing: 3.2px;
+      color: #ffffff;
+      z-index: 2;
+    }
+  }
+  &__title {
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: normal;
+    text-align: left;
+    color: #333333;
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+  &__text {
+    p {
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.88;
+      letter-spacing: normal;
+      text-align: left;
+      color: #333333;
+    }
+  }
+  &__button {
+    margin-top: 15px;
+    a {
+      background-color: #df001f;
+      color: #ffffff;
+    }
+  }
+}
+
+.videos {
+  min-width: 380px;
+  display: flex;
+  flex-direction: column;
+  &__button {
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  &__img {
+    position: relative;
+    img {
+      width: 100%;
+    }
+  }
+  &__icon {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    border: #df001f 1px solid;
+    padding: 10px 13px 10px 15px;
+    border-radius: 50%;
+    background-color: #df001f;
+    i {
+      text-align: center;
+      color: #ffffff;
+    }
+  }
+}

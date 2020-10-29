@@ -1,0 +1,33 @@
+.old {
+  &__container {
+    background-color: #333333;
+    padding: 86px 100px;
+    position: relative;
+    max-height: 370px;
+  }
+  &__title {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 0.63;
+    color: #ffffff;
+    margin-bottom: 40px;
+  }
+  &__text {
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 40px;
+    color: #ffffff;
+  }
+  &__button {
+    a {
+      background-color: #dfdfdf;
+      color: #df001f;
+    }
+  }
+  &__img {
+    position: absolute;
+    top: 0px;
+    right: 0;
+  }
+}
