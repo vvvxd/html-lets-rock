@@ -1,0 +1,74 @@
+.download {
+  margin-top: 100px;
+
+  &__container {
+    text-align: center;
+    max-height: 354px;
+    padding: 50px;
+    background: url('../img/layer-1.png') no-repeat;
+  }
+  &__title {
+    font-size: 32px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  &__text {
+    font-size: 22px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: 1.1px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 40px;
+  }
+  &__button-container {
+    display: flex;
+    justify-content: center;
+  }
+  &__button {
+    margin-right: 20px;
+  }
+}
+.down-btn {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #050708;
+  padding: 10px 26px;
+  background-color: #050708;
+  border-radius: 10px;
+  &__text {
+    color: #dfdfdf;
+    text-align: left;
+    span {
+      font-size: 10px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.7;
+      letter-spacing: normal;
+      text-align: left;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+  &__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 6px;
+    i {
+      color: #dfdfdf;
+      font-size: 30px;
+    }
+  }
+}

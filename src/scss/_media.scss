@@ -1,0 +1,119 @@
+@media (max-width: 1400px) {
+  .header {
+    &__social {
+      margin-right: 10px;
+      i {
+        margin-right: 30px;
+      }
+    }
+    &__nav {
+      ul {
+        margin: 0 0 0 30px;
+      }
+      li {
+        margin-left: 50px;
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .header {
+    &__nav {
+      ul {
+        margin: 0 0 0 20px;
+      }
+      li {
+        margin-left: 40px;
+      }
+    }
+    &__social {
+      i {
+        display: none;
+      }
+    }
+  }
+  .logo {
+    &__macro {
+      top: 50%;
+      left: 50%;
+    }
+    &__text {
+      top: 50%;
+      left: 48%;
+    }
+  }
+  .artists__container {
+    padding: 0 20px;
+  }
+  .info {
+    &__container {
+      padding: 0 20px;
+    }
+  }
+  .music {
+    &__container {
+      padding: 30px;
+      flex-direction: column;
+    }
+    &__feed {
+      margin-top: 50px;
+    }
+
+  }
+}
+@media (max-width: 992px) {
+  .header {
+    &__nav {
+      ul {
+        margin: 0 0 0 30px;
+      }
+      li {
+        margin-left: 15px;
+      }
+    }
+  }
+  .info {
+    &__container {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__consert {
+      margin-bottom: 30px;
+      width: 90%;
+    }
+    &__videos {
+      width: 90%;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    &__nav {
+      display: none;
+    }
+    &__social {
+      display: none;
+    }
+  }
+  .artists {
+    &__content {
+      justify-content: center;
+    }
+    .item {
+      margin-bottom: 30px;
+    }
+  }
+  .old {
+    &__title {
+      line-height: 30px;
+    }
+    &__container {
+      max-height: 700px;
+    }
+    &__img {
+      display: none;
+    }
+  }
+}
+@media (max-width: 576px) {
+}
